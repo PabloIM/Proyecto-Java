@@ -1,6 +1,6 @@
 import java.util.Scanner;
-public class ventas {
-    public static void main(String[] args) {
+public class Ventas {
+    public static void ventas() {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Bienvenido a ventas");
         System.out.println();
