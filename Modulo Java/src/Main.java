@@ -8,11 +8,15 @@ public class Main {
         System.out.println("1 = control de stock");
         System.out.println("2 = ventas");
         int seleccion = entrada.nextInt();
+        System.out.println();
         if (seleccion == 1){
             //Ir hacia stock.
         }
+        else if (seleccion == 2){
+            Ventas.ticket();
+        }
         else{
-            //Ir hacia ventas.
+            System.exit(0);
         }
     }
 }
