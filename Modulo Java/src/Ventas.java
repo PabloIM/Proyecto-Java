@@ -3,6 +3,7 @@ public class Ventas {
     public static void main(String[]args) {
         ticket();
     }
+
     public static void ticket() {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Bienvenido a ventas");
