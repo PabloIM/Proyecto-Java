@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Ventas {
-    public static void main(String[]args){
+    public static void main(String[]args) {
         ticket();
     }
     public static void ticket() {

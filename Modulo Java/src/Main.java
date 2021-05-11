@@ -10,7 +10,7 @@ public class Main {
         int seleccion = entrada.nextInt();
         System.out.println();
         if (seleccion == 1){
-            //Ir hacia stock.
+            Stock.mainStock();
         }
         else if (seleccion == 2){
             Ventas.ticket();
