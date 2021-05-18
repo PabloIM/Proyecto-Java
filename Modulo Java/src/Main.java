@@ -1,22 +1,38 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("Bienvenido al gestor de datos del supermercado Mercadona");
-        System.out.println();
-        System.out.println("Que hacer:");
-        System.out.println("1 = control de stock");
-        System.out.println("2 = ventas");
-        int seleccion = entrada.nextInt();
-        System.out.println();
-        if (seleccion == 1){
-            Stock.mainStock();
+        File file=new File("C:\\Users\\Javi\\IdeaProjects\\Proyecto-Java\\Modulo Java\\src\\datosStock.txt");
+        int n=0;
+        String Mat[][]= new String[3][5];
+        try{
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()){
+                String line = sc.nextLine();
+                String[] values = line.split(",");
+                for(int i=0;i<values.length;i++){
+                    Mat[n][i]=values[i];
+                }
+                n++;
+            }
+            sc.close();
         }
-        else if (seleccion == 2){
-            Ventas.ticket();
+        catch (FileNotFoundException ex){
+            System.out.println("No se encuentra el archivo");
+            System.out.println(ex);
         }
-        else{
-            System.exit(0);
+        catch (Exception e){
+            System.out.println(e);
+        }
+
+        System.out.println();
+
+        for(int m=0;m<Mat.length;m++){
+            for(int t=0;t<Mat[m].length;t++){
+                System.out.print(" "+Mat[m][t]);
+            }
+            System.out.println();
         }
 
     }

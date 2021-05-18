@@ -50,4 +50,7 @@ public class Ventas {
             System.out.println();
         }
     }
+    public static void carrito(String [][] datosStock){
+
+    }
 }

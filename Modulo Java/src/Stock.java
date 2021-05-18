@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class Stock {
@@ -27,8 +28,7 @@ public class Stock {
     }
 
     public static void añadir() {
-        System.out.println("Introduce el código del producto");
-
+        BufferedReader br;
     }
 
     public static void consultar() {
