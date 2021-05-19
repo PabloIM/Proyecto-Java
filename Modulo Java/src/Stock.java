@@ -1,44 +1,61 @@
-import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class Stock {
-    public static void mainStock() {
+    public static void mainStock(String[][] datosStock, int numero) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Que deseas hacer?");
-        System.out.println();
-        System.out.println("1. Añadir producto");
-        System.out.println("2. Consultar");
-        System.out.println("3. Salir");
-        int opcion = entrada.nextInt();
+        int opcion = 0;
 
-        if (opcion == 1) {
-            añadir();
-        }
-        if (opcion == 2) {
-            consultar();
-        }
-
-        if (opcion == 3) {
-
-        }
-        while (opcion != 1 && opcion != 2 && opcion != 3) {
-            System.out.println("Te has equivocado, introduce un numero de nuevo");
+        while (opcion != 3){
+            System.out.println();
+            System.out.println("Que deseas hacer?");
+            System.out.println();
+            System.out.println("1. Añadir producto");
+            System.out.println("2. Consultar");
+            System.out.println("3. Salir");
             opcion = entrada.nextInt();
+
+            if (opcion == 1) {
+                añadir(datosStock);
+            }
+            else if (opcion == 2) {
+                consultar(datosStock);
+            }
+            else if (opcion == 3) {
+                volver();
+            }
+            else {
+                System.out.println("Error, el numero introducido no es valido.");
+            }
         }
     }
 
-    public static void añadir() {
-        BufferedReader br;
-    }
+    public static void volver(){
+        String [] inicio = {};
+            Main.main(inicio);
+        }
 
-    public static void consultar() {
+    public static void añadir(String [][] matriz) {
         Scanner entrada = new Scanner(System.in);
-        String seleccion1 = "";
-        System.out.println("Probando");
-        while (!seleccion1.equals("-1")) {
-            System.out.println(seleccion1);
-            seleccion1 = entrada.nextLine();
+        for (int columna=0; columna< matriz.length; columna++){
+            for (int fila=0; fila< matriz[columna].length; fila++){
+                System.out.println("Introduce el código del producto");
+                matriz[fila][columna] = entrada.next();
+                System.out.println("Introduce el nombre del producto");
+                matriz[fila][columna] = entrada.next();
+                System.out.println("Introduce las unidades del producto");
+                matriz[fila][columna] = entrada.next();
+            }
         }
+    }
+
+    public static void consultar(String [][] matriz) {
+        for(int m=0;m<matriz.length;m++){
+            for(int t=0;t<matriz[m].length;t++){
+                System.out.print(" "+matriz[m][t]);
+            }
+            System.out.println();
+        }
+        return;
     }
 
 }
