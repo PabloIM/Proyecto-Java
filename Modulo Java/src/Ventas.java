@@ -1,10 +1,9 @@
 import java.util.Scanner;
 public class Ventas {
-    public static void main(String[]args) {
+    public static void main(String[] args) {
         ticket();
     }
-
-    public static void ticket() {
+    public static void ticket(){
         Scanner entrada = new Scanner(System.in);
         System.out.println("Bienvenido a ventas");
         System.out.println();
@@ -16,41 +15,36 @@ public class Ventas {
             System.out.println();
             System.out.println("Cuántos productos quieres añadir? ");
             int productos = entrada.nextInt();
-            String [][] ticket = new String[2][productos+1];
-            int x = 0;
-            int y = 1;
-            ticket[0][0]="[Código] ";
-            ticket[1][0]="[Cantidad]";
-            System.out.println();
-            for (int n=0; n<productos; n++ ) {
-                añadirProducto(ticket,x,y);
-                y++;
+            String[][] ticket = new String[productos+1][2];
+            for(int n=0;n<productos;n++){
+                añadirProducto(ticket,productos,n);
             }
-            System.out.println();
-            mostrarTicket(ticket,x,y,productos+1);
+            mostrarTicket(ticket,productos);
+
+        }
+        else if (seleccion == 2){
+            String[] inicio={};
+            Main.main(inicio);
         }
         else{
-            //Volver al menú inicial.
+            System.out.println("Escribe un número válido.");
         }
     }
-    public static void añadirProducto(String[][] ticket,int x, int y) {
+    public static void añadirProducto(String[][] ticket, int productos, int n){
         Scanner entrada = new Scanner(System.in);
         System.out.print("Introduce el código del producto: ");
-        ticket[x][y] = entrada.next();
-        System.out.print("Introduce la cantidad: ");
-        ticket[x+1][y] = entrada.next();
+        ticket[n][0]=entrada.next();
+        System.out.print("Introduce la cantidad del producto: ");
+        ticket[n][1]=entrada.next();
     }
-    public static void mostrarTicket(String[][] ticket,int x, int y,int productos){
-        System.out.println(ticket[0][0]+ticket[1][0]);
-        for (y=0; y<productos-1; y++ ) {
-            for (x=0; x < 2; x++) {
-                System.out.print(" ["+ticket[x][y+1]+"] ");
-                System.out.print("      ");
+    public static void mostrarTicket(String[][]ticket, int productos){
+        System.out.print("[Código]");
+        System.out.println("[Cantidad]");
+        for(int n=0;n<ticket.length;n++){
+            for(int m=0;m<ticket[n].length;m++){
+                System.out.print("["+ticket[n][m]+"]    ");
             }
             System.out.println();
         }
-    }
-    public static void carrito(String [][] datosStock){
-
     }
 }
