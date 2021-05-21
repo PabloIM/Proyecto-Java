@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Stock {
-    public static void mainStock(String[][] datosStock, int numero) {
+    public static void mainStock(String[][] datosStock) {
         Scanner entrada = new Scanner(System.in);
         int opcion = 0;
 
@@ -31,19 +31,27 @@ public class Stock {
 
     public static void volver(){
         String [] inicio = {};
-            Main.main(inicio);
-        }
+        Main.main(inicio);
+    }
 
     public static void añadir(String [][] matriz) {
         Scanner entrada = new Scanner(System.in);
-        for (int columna=0; columna< matriz.length; columna++){
-            for (int fila=0; fila< matriz[columna].length; fila++){
-                System.out.println("Introduce el código del producto");
-                matriz[fila][columna] = entrada.next();
-                System.out.println("Introduce el nombre del producto");
-                matriz[fila][columna] = entrada.next();
-                System.out.println("Introduce las unidades del producto");
-                matriz[fila][columna] = entrada.next();
+        System.out.println("Cuantos productos deseas añadir?");
+        int numero = entrada.nextInt();
+        for (int columna=0; columna< numero; columna++){
+            for (int fila=0; fila< matriz[numero].length; fila++){
+                if (fila == 0){
+                    System.out.println("Introduce el codigo del producto");
+                    matriz[columna][fila] = entrada.next();
+                }
+                else if (fila == 1){
+                    System.out.println("Introduce el nombre del producto");
+                    matriz[columna][fila] = entrada.next();
+                }
+                else if (fila ==2){
+                    System.out.println("Introduce el precio del producto");
+                    matriz[columna][fila] = entrada.next();
+                }
             }
         }
     }
@@ -51,11 +59,18 @@ public class Stock {
     public static void consultar(String [][] matriz) {
         for(int m=0;m<matriz.length;m++){
             for(int t=0;t<matriz[m].length;t++){
-                System.out.print(" "+matriz[m][t]);
+                if (matriz[m][t] != null) {
+                    System.out.println();
+                    System.out.print(" " + matriz[m][t]);
+                }
+                else {
+                    return;
+                }
+            }
+            if (matriz[m] == null){
+                return;
             }
             System.out.println();
-        }
-        return;
+        } return;
     }
-
 }

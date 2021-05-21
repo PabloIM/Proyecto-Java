@@ -7,7 +7,7 @@ public class Main {
 
         File file=new File("C:\\Users\\Pablo Ibañez\\IdeaProjects\\Proyecto-Java\\Modulo Java\\src\\datosStock.txt");
         int n=0;
-        String Mat[][]= new String[3][5];
+        String Mat[][]= new String[100][3];
         try{
             Scanner sc = new Scanner(file);
             while(sc.hasNextLine()){
@@ -38,8 +38,7 @@ public class Main {
 
         while (opcion == 1 || opcion == 2){
             if (opcion == 1){
-                int numero = 0;
-                Stock.mainStock(Mat, numero);
+                Stock.mainStock(Mat);
             }
 
             else if (opcion == 2){
